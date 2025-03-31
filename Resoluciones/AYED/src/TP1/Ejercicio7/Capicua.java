@@ -4,10 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class TestArrayList {
-    //private List<Integer> arreglo = new ArrayList<Integer>();
-
-
+public class Capicua {
+    public static boolean esCapicua(List<Integer> arreglo){
+        int i = 0;
+        int j = arreglo.size();
+        while(i < j){
+            if(arreglo.get(j - 1) != arreglo.get(i)){
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         List<Integer> arreglo = new ArrayList<>();
@@ -32,6 +41,6 @@ public class TestArrayList {
         for (int i = 0; i < arreglo.size(); i++) {
             System.out.println(arreglo.get(i));
         }
-
+        System.out.println("El arreglo es capicua?: " + esCapicua(arreglo));
     }
 }

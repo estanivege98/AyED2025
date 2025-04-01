@@ -13,20 +13,30 @@ public class Transformacion {
         if(arbol == null){
             return null;
         }
+
         sumaRecursiva(arbol);
         return arbol;
     }
 
     private int sumaRecursiva(BinaryTree<Integer> arbol){
-        if(arbol == null){
-            return 0;
+        int suma = 0;
+
+        if(arbol.isLeaf()){
+            suma += arbol.getData();
+            arbol.setData(0);
+            return suma;
         }
         else{
-            int sumaIzq = sumaRecursiva(arbol.getLeftChild());
-            int sumaDer = sumaRecursiva(arbol.getRightChild());
-            int valorAct = arbol.getData();
-            arbol.setData(valorAct);
-            return valorAct + sumaIzq + sumaDer;
+            if(arbol.getLeftChild() != null){
+                suma += sumaRecursiva(arbol.getLeftChild());
+            }
+            if(arbol.getRightChild() != null){
+                suma += sumaRecursiva(arbol.getRightChild());
+            }
+
         }
+        int valorAct = arbol.getData();
+        arbol.setData(suma);
+        return valorAct + suma;
     }
 }

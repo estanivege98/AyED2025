@@ -2,6 +2,9 @@ package TP2.Ejercicio1;
 
 import TP1.Ejercicio8.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinaryTree <T> {
 	
 	private T data;
@@ -108,34 +111,39 @@ public class BinaryTree <T> {
     }
 
 	// 0<=n<=m
-	public void entreNiveles(int n, int m){
-		BinaryTree<T> abAux = null;
-		Queue<BinaryTree<T>> cola = new Queue<BinaryTree<T>>();
-		cola.enqueue(this);
-		cola.enqueue(null);
-		int nivelAct = 0;
-		while(!cola.isEmpty() && nivelAct<=m){
-			abAux = cola.dequeue();
-			if(abAux != null){
-				if(nivelAct>=n){
-					System.out.println(abAux.getData());
-				}
-				if(abAux.hasLeftChild() && nivelAct+1<=m){
-					cola.enqueue(abAux.getLeftChild());
-				}
-				if(abAux.hasRightChild() && nivelAct+1<=m){
-					cola.enqueue(abAux.getRightChild());
-				}
-			}
-			else{
-				if(!cola.isEmpty()){
-					//System.out.println("");
-					cola.enqueue(null);
-					nivelAct++;
-				}
-			}
-		}
-
+	public void entreNiveles(int n, int m) {
+       BinaryTree<T> abAux = null;
+       Queue<BinaryTree<T>> cola = new Queue<BinaryTree<T>>();
+       List<List<T>> niveles = new ArrayList<>();
+       cola.enqueue(this);
+       cola.enqueue(null);
+       int nivelAct = 0;
+       niveles.add(new ArrayList<>());
+       while (!cola.isEmpty() && nivelAct <= m) {
+           abAux = cola.dequeue();
+           if (abAux != null) {
+               if (nivelAct >= n) {
+                   niveles.get(nivelAct).add(abAux.getData());
+               }
+               if (abAux.hasLeftChild() && nivelAct + 1 <= m) {
+                   cola.enqueue(abAux.getLeftChild());
+               }
+               if (abAux.hasRightChild() && nivelAct + 1 <= m) {
+                   cola.enqueue(abAux.getRightChild());
+               }
+           } else {
+               if (!cola.isEmpty()) {
+                   cola.enqueue(null);
+                   nivelAct++;
+                   if (nivelAct <= m) {
+                       niveles.add(new ArrayList<>());
+                   }
+               }
+           }
+       }
+       for (int i = n; i <= m && i < niveles.size(); i++) {
+           System.out.println("Nivel " + i + ": " + niveles.get(i));
+       }
    }
 
 

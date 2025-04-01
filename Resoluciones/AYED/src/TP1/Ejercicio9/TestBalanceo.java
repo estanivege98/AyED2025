@@ -25,7 +25,7 @@ public class TestBalanceo {
         cierre.add(']');
         cierre.add('}');
         boolean ok = true;
-        if(!cadena.isEmpty() && cierre.contains(cadena.charAt(0))){
+        if(!cadena.isEmpty() && (cierre.contains(cadena.charAt(0)) && cadena.length() == 1)){
             ok = false;
         }
         else{

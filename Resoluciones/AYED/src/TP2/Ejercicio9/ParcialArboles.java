@@ -6,14 +6,34 @@ public class ParcialArboles {
             return null;
         }
         else{
-            BinaryTree<Dato> nevoArbol = new BinaryTree<Dato>();
-            sumAndDifRec(arbol, nevoArbol);
+            BinaryTree<Dato> nuevoArbol = new BinaryTree<Dato>();
+
+            sumAndDifRec(arbol, nuevoArbol, 0, 0);
+            return nuevoArbol;
         }
-        return nevoArbol;
+        //return nuevoArbol;
     }
 
-    private void sumAndDifRec(BinaryTree<Integer> arbol, BinaryTree<Dato> nuevoArbol){
-        BinaryTree<Dato> izq = new BinaryTree<Dato>();
-        BinaryTree<Dato> der = new BinaryTree<Dato>();
+    private void sumAndDifRec(BinaryTree<Integer> arbol, BinaryTree<Dato> nuevoArbol, int valorPadre, int sumaValorOriginal){
+        int valorActual = arbol.getData();
+        int suma = sumaValorOriginal + valorActual;
+        int resta = valorActual - valorPadre;
+
+        Dato datoIzq = new Dato(suma, resta);
+
+        nuevoArbol.setData(datoIzq);
+
+        if(arbol.hasLeftChild()){
+
+            BinaryTree<Dato> nodoIzq = new BinaryTree<Dato>();
+            nuevoArbol.addLeftChild(nodoIzq);
+            sumAndDifRec(arbol.getLeftChild(), nodoIzq, valorActual,suma);
+        }
+        if(arbol.hasRightChild()){
+
+            BinaryTree<Dato> nodoDer = new BinaryTree<Dato>();
+            nuevoArbol.addRightChild(nodoDer);
+            sumAndDifRec(arbol.getRightChild(), nodoDer, valorActual,suma);
+        }
     }
 }

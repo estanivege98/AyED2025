@@ -24,4 +24,9 @@ public class Dato {
     public void setDatoDer(int datoDer) {
         this.datoDer = datoDer;
     }
+
+    @Override
+    public String toString() {
+        return "Dato [datoIzq=" + datoIzq + ", datoDer=" + datoDer + "]";
+    }
 }

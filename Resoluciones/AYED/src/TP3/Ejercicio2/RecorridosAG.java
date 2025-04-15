@@ -28,17 +28,21 @@ public class RecorridosAG {
         return lista;
     }
 
-    /* Se debe revisar */
-
     private void inOrden(GeneralTree<Integer> a, int n, List<Integer> lista){
         if(a.hasChildren()){
-            inOrden(a.getChildren().get(0), n, lista);
+            inOrden(a.getChildren().getFirst(), n, lista);
         }
         if(a.getData() % 2 !=0 && a.getData() > n){
             lista.add(a.getData());
         }
-        for(int i = 1; i < a.getChildren().size(); i++){
-            inOrden(a.getChildren().get(i), n, lista);
+        boolean ok = false;
+        for(GeneralTree<Integer> i : a.getChildren()) {
+            if (!ok) {
+                ok = true;
+            }
+            else{
+                inOrden(i, n, lista);
+            }
         }
     }
 

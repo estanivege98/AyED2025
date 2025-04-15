@@ -24,8 +24,8 @@ public class Prueba {
 
         // Prueba
         ParcialArboles pa = new ParcialArboles(arbol);
-        System.out.println(pa.isLeftTree(7));
-        System.out.println(pa.isLeftTree(2));
+       System.out.println(pa.isLeftTree(7));
+       System.out.println(pa.isLeftTree(2));
        System.out.println(pa.isLeftTree(-5));
        System.out.println(pa.isLeftTree(19));
        System.out.println(pa.isLeftTree(-3));

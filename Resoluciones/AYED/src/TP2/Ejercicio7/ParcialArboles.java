@@ -8,9 +8,10 @@ public class ParcialArboles {
     }
 
     public boolean isLeftTree(int num) {
-        if (arbol.isEmpty()){
+        if (arbol == null || arbol.isEmpty()){
             return false;
         }
+
         else {
             BinaryTree<Integer> nodo = buscarNodo(arbol, num);
             if (nodo.isEmpty()){
@@ -26,39 +27,34 @@ public class ParcialArboles {
     }
 
     private BinaryTree<Integer> buscarNodo(BinaryTree<Integer> arbol, int num) {
-        if(arbol == null){
-            return null;
+        BinaryTree<Integer> aux = new BinaryTree<Integer>();
+        if(arbol.getData().equals(num)){
+            return arbol;
         }
         else{
-            if(arbol.getData().equals(num)){
-                return arbol;
+            if(arbol.hasLeftChild()){
+                aux = buscarNodo(arbol.getLeftChild(), num);
             }
-            else{
-                BinaryTree<Integer> izq = buscarNodo(arbol.getLeftChild(), num);
-                if(izq != null){
-                    return izq;
-                }
-                else{
-                    return buscarNodo(arbol.getRightChild(), num);
+            if(aux.isEmpty() && arbol.hasRightChild()){
+                    aux = buscarNodo(arbol.getRightChild(), num);
                 }
             }
-        }
+        return aux;
     }
 
     private int contarSoloHijo(BinaryTree<Integer> arbol) {
-        if(arbol == null){
-            return 0;
+        int cant = 0;
+        if(arbol.hasLeftChild()){
+            cant = contarSoloHijo(arbol.getLeftChild());
         }
-        else{
-            int cantIzq = contarSoloHijo(arbol.getLeftChild());
-            int cantDer = contarSoloHijo(arbol.getRightChild());
-            if (arbol.hasLeftChild() && !arbol.hasRightChild()) {
-                return 1 + cantIzq + cantDer;
-            } else if (!arbol.hasLeftChild() && arbol.hasRightChild()) {
-                return 1 + cantIzq + cantDer;
-            } else {
-                return cantIzq + cantDer;
-            }
+        if(arbol.hasRightChild()){
+            cant += contarSoloHijo(arbol.getRightChild());
         }
+        if(arbol.getLeftChild() == null ^ arbol.getRightChild() == null){
+            // XOR, para reemplazar el if largo de
+            // if((!arbol.hasLeftChild() && arbol.hasRightChild()) || (arbol.hasLeftChild() && !arbol.hasRightChild())){
+            cant++;
+        }
+        return cant;
     }
 }

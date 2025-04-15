@@ -27,7 +27,7 @@ public class Prueba {
 
         // prueba
 
-        ParcialArboles pa = new ParcialArboles();
+        ParcialArboles pa = new ParcialArboles(arbol1, arbol2);
         System.out.println("Arbol 1:");
         arbol1.entreNiveles(0, 5);
         System.out.println("Arbol 2:");

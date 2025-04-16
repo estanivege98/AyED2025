@@ -3,6 +3,9 @@ package TP3.Ejercicio1;
 import java.util.LinkedList;
 import java.util.List;
 
+
+import TP1.Ejercicio8.*;
+
 public class GeneralTree<T>{
 
 	private T data;
@@ -56,18 +59,65 @@ public class GeneralTree<T>{
 		if (this.hasChildren())
 			children.remove(child);
 	}
-	
-	public int altura() {	 
-			
-		return 0;
+
+	// CONSULTAR EN CLASE (Los 3 metodos)
+
+	public int altura() {
+		int max = 0;
+		if(this.hasChildren()){
+			for (GeneralTree<T> child : this.children) {
+				int h = child.altura();
+				if (h > max) {
+					max = h;
+				}
+			}
+		}
+		return max + 1;
 	}
 	
 	public int nivel(T dato){
-		return 0;
-	  }
+		int nivel = 0;
+		if(this.getData().equals(dato)){
+			return nivel;
+		}
+		else{
+			for (GeneralTree<T> hijos : this.getChildren()){
+				nivel = hijos.nivel(dato);
+				if(nivel != -1){
+					return nivel + 1;
+				}
+			}
+			return -1;
+		}
+	}
 
 	public int ancho(){
-		
-		return 0;
+		GeneralTree<T> abAux = new GeneralTree<T>();
+		Queue<GeneralTree<T>> cola = new Queue<GeneralTree<T>>();
+		cola.enqueue(this);
+		cola.enqueue(null);
+		int nodoMax = Integer.MIN_VALUE;
+		while(!cola.isEmpty()){
+			abAux = cola.dequeue();
+			int nodoActual = 0;
+			if(abAux != null){
+				if(abAux.hasChildren()){
+					for (GeneralTree<T> hijos : abAux.getChildren()){
+						nodoActual++;
+						cola.enqueue(hijos);
+					}
+				}
+			}
+			else {
+				if(nodoActual > nodoMax){
+					nodoMax = nodoActual;
+				}
+				if(!cola.isEmpty()){
+					cola.enqueue(null);
+				}
+
+			}
+		}
+		return nodoMax;
 	}
 }

@@ -3,6 +3,9 @@ import TP3.Ejercicio1.*;
 import TP1.Ejercicio8.*;
 public class AnalizadorArbol {
     public double devolverMaximoPromedio(GeneralTree<AreaEmpresa> arbol){
+        if(arbol.isEmpty()){
+            return 0;
+        }
         GeneralTree<AreaEmpresa> abAux = new GeneralTree<AreaEmpresa>();
         Queue<GeneralTree<AreaEmpresa>> cola = new Queue<GeneralTree<AreaEmpresa>>();
         cola.enqueue(arbol);

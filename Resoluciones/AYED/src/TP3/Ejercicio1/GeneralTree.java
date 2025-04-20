@@ -120,4 +120,34 @@ public class GeneralTree<T>{
 		}
 		return nodoMax;
 	}
+
+	// CONSULTAR
+
+	public boolean esAncestro(T a, T b){
+		if(this.getData().equals(a)){
+			return buscarDescendiente(b);
+		}
+		else{
+			for (GeneralTree<T> hijos : this.getChildren()){
+				if(hijos.esAncestro(a, b)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private boolean buscarDescendiente(T dato){
+		if(this.getData().equals(dato)){
+			return true;
+		}
+		else{
+			for (GeneralTree<T> hijos : this.getChildren()){
+				if(hijos.buscarDescendiente(dato)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

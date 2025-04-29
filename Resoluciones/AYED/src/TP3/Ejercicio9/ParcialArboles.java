@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import TP3.Ejercicio1.GeneralTree;
- // Se debe consultar
+/* SE DEBE REIMPLEMENTAR EN ITERATIVO (POR NIVELES) */
 public class ParcialArboles {
     public static boolean esDeSeleccion(GeneralTree<Integer> arbol){
         if(arbol.isEmpty()){

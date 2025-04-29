@@ -53,7 +53,9 @@ valor 0*/
                     recorrido(hijo, lista, listaAct, suma, nivel + 1, max);
                 }
             }
-            //listaAct.remove(listaAct.size()-1);
+            if(!listaAct.isEmpty()){
+                listaAct.removeLast();
+            }
         }
 
     public static void main(String[] args){

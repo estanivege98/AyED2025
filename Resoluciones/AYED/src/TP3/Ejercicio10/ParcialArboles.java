@@ -7,7 +7,7 @@ import TP3.Ejercicio1.GeneralTree;
 import TP1.Ejercicio8.*;
 public class ParcialArboles {
 
-    // realmente, no termino de entender que es lo que quieren
+
     /* Implemente la clase ParcialArboles, y el método:
 public static List<Integer> resolver(GeneralTree<Integer> arbol)
 que recibe un árbol general de valores enteros, que solo pueden ser 0 o 1 y devuelve una lista con los
@@ -53,7 +53,9 @@ valor 0*/
                     recorrido(hijo, lista, listaAct, suma, nivel + 1, max);
                 }
             }
-            //listaAct.remove(listaAct.size()-1);
+            if(!listaAct.isEmpty()){
+                listaAct.removeLast();
+            }
         }
 
     public static void main(String[] args){

@@ -14,7 +14,7 @@ public class ParcialArboles {
         int nivel = 0;
         boolean ok = true;
         int cantNodos = 0;
-        while(!cola.isEmpty()){
+        while(!cola.isEmpty() && ok){
             arbolAux = cola.dequeue();
             if(arbolAux != null){
                 cantNodos++;

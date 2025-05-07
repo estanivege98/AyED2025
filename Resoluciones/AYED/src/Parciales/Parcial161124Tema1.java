@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 public class Parcial161124Tema1 {
     public boolean esInferiorProfundo(GeneralTree<Integer> arbol1, GeneralTree<Integer> arbol2){
-        if(arbol1.isEmpty() && arbol2.isEmpty()){
+        if(arbol1.isEmpty() || arbol2.isEmpty()){
             return false;
         }
         else{
@@ -14,17 +14,17 @@ public class Parcial161124Tema1 {
     }
     private boolean recorrido(GeneralTree<Integer> arbol1, GeneralTree<Integer> arbol2){
         boolean ok= true;
-        if(arbol1.getData()>arbol2.getData()){
+        if(arbol1.getData()>=arbol2.getData()){
             ok = false;
         }
         if(arbol1.isLeaf() && arbol2.isLeaf()){
-            if(!ok){
-                return false;
-            }
+            return ok;
         }
-        else if(arbol1.isLeaf() ^ arbol2.isLeaf()){
-            if((!ok) || arbol2.isLeaf())
-                return false;
+        if(arbol1.isLeaf() && !arbol2.isLeaf()){
+            return ok;
+        }
+        if(!arbol1.isLeaf() && arbol2.isLeaf()){
+            return false;
         }
         else{
             List<GeneralTree<Integer>> hijos1 = new ArrayList<GeneralTree<Integer>>();
@@ -39,12 +39,12 @@ public class Parcial161124Tema1 {
                 hijos2.add(hijo);
                 cont2+=hijo.getData();
             }
-            if(cont2 < cont1){
+            if(cont2 <= cont1){
                 return false;
             }
             Iterator<GeneralTree<Integer>> it1 = hijos1.iterator();
             Iterator<GeneralTree<Integer>> it2 = hijos2.iterator();
-            while(it1.hasNext() && it2.hasNext()){
+            while((it1.hasNext() && it2.hasNext()) && (ok)){
                 GeneralTree<Integer> hijo1 = it1.next();
                 GeneralTree<Integer> hijo2 = it2.next();
                 ok = recorrido(hijo1, hijo2);

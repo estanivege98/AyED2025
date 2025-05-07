@@ -19,4 +19,12 @@ public class Personaje {
     public String getNombre(){
         return nombre;
     }
+
+    @Override
+    public String toString() {
+        return "Personaje{" +
+                "nombre='" + nombre + '\'' +
+                ", esDragon=" + esDragon +
+                '}';
+    }
 }

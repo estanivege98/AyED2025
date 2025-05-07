@@ -26,7 +26,7 @@ public class Parcial161124Tema1 {
         if(!arbol1.isLeaf() && arbol2.isLeaf()){
             return false;
         }
-        else{
+
             List<GeneralTree<Integer>> hijos1 = new ArrayList<GeneralTree<Integer>>();
             List<GeneralTree<Integer>> hijos2 = new ArrayList<GeneralTree<Integer>>();
             int cont1=0;
@@ -49,7 +49,7 @@ public class Parcial161124Tema1 {
                 GeneralTree<Integer> hijo2 = it2.next();
                 ok = recorrido(hijo1, hijo2);
             }
-        }
+
         return ok;
     }
 }

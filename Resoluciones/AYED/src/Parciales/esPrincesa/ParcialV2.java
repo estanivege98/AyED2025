@@ -8,29 +8,24 @@ public class ParcialV2 {
         if(arbol == null || arbol.isEmpty()){
             return null;
         }
-        Personaje personaje = null;
-        //boolean encontrado = false;
-        helper(arbol, true, personaje);
-        return personaje;
+        return helper(arbol);
     }
 
-    private boolean helper(BinaryTree<Personaje> arbol, boolean esAccesible, Personaje personaje) {
-        boolean encontrado = false;
-        if(arbol.getData().esPrincesa()){
-            personaje = arbol.getData();
-            encontrado = true;
-        }
-        else if(arbol.getData().esDragon()){
-            esAccesible = false;
-        }
-        else{
-            if(arbol.hasLeftChild() && esAccesible){
-                encontrado = helper(arbol.getLeftChild(), esAccesible, personaje);
+    private Personaje helper(BinaryTree<Personaje> arbol) {
+        Personaje persona = null;
+        if(!arbol.getData().esDragon()){
+            if(arbol.getData().esPrincesa()){
+                persona = arbol.getData();
             }
-            if(arbol.hasRightChild() && esAccesible){
-                encontrado = helper(arbol.getRightChild(), esAccesible, personaje);
+            else{
+                if(arbol.hasLeftChild()){
+                    persona = helper(arbol.getLeftChild());
+                }
+                if(arbol.hasRightChild() && persona == null){
+                    persona = helper(arbol.getRightChild());
+                }
             }
         }
-        return encontrado;
+        return persona;
     }
 }

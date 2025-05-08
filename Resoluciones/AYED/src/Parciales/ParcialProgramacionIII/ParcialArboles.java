@@ -4,7 +4,7 @@ import TP1.Ejercicio8.*;
 public class ParcialArboles {
     public GeneralTree<String> tesoroAccesibleMasCercano(GeneralTree<String> arbol){
         if(arbol == null || arbol.isEmpty()){
-            return null;
+            return new GeneralTree<String >();
         }
         GeneralTree<String> arbolAux = new GeneralTree<>();
         Queue<GeneralTree<String>> cola = new Queue<GeneralTree<String>>();

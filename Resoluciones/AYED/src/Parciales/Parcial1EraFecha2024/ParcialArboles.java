@@ -51,7 +51,7 @@ public class ParcialArboles {
         while(!cola.isEmpty() && !corte){
             abAux = cola.dequeue();
             if(abAux != null){
-                if(abAux.getChildren().size() == num){
+                if(abAux.getChildren().size() <= num){
                     cumpleNivel = true;
                 }
                 listaAct.add(abAux.getData());

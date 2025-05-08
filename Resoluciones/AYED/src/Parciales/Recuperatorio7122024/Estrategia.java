@@ -20,18 +20,17 @@ public class Estrategia {
 
     private int helper(GeneralTree<Compuesto> arbol, List<Compuesto> respuesta, List<Compuesto> camAct, int tiempo, int menorTiempo) {
         if (tiempo > 0) {
-            int tiempoNodo = (arbol.getData().getVueltas() * (int) arbol.getData().getCompuesto());
+            int tiempoNodo = (int)(arbol.getData().getCompuesto() * arbol.getData().getVueltas());
             tiempo += tiempoNodo;
             camAct.add(arbol.getData());
             if (arbol.isLeaf()) {
-                if (tiempo > menorTiempo) {
+                if (tiempo < menorTiempo) {
                     menorTiempo = tiempo;
                     respuesta.clear();
                     respuesta.addAll(new ArrayList<>(camAct));
                 }
             }
         }
-
 
         for (GeneralTree<Compuesto> hijo : arbol.getChildren()) {
             menorTiempo = helper(hijo, respuesta, camAct, tiempo + 10, menorTiempo);

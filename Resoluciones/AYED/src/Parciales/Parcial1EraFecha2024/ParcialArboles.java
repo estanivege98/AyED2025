@@ -1,12 +1,11 @@
-package Parciales;
+package Parciales.Parcial1EraFecha2024;
 
 import TP3.Ejercicio1.GeneralTree;
 import TP1.Ejercicio8.*;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
-public class Parcial1erafecha2024 {
+public class ParcialArboles {
     public GeneralTree<Integer> arbol;
 
 //    public List<Integer> nivel(int num) {

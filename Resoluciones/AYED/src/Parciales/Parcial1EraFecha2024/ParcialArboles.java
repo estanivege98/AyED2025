@@ -5,6 +5,7 @@ import TP1.Ejercicio8.*;
 
 import java.util.List;
 import java.util.ArrayList;
+
 public class ParcialArboles {
     public GeneralTree<Integer> arbol;
 
@@ -38,7 +39,7 @@ public class ParcialArboles {
 //        return new ArrayList<>();
 //    }
 
-    public List<Integer> nivel(int num){
+    public List<Integer> nivel(int num) {
         GeneralTree<Integer> abAux = new GeneralTree<Integer>();
         Queue<GeneralTree<Integer>> cola = new Queue<GeneralTree<Integer>>();
         cola.enqueue(abAux);
@@ -48,29 +49,29 @@ public class ParcialArboles {
         List<Integer> listaAct = new ArrayList<>();
         List<Integer> listaNodos = new ArrayList<>();
         boolean cumpleNivel = false;
-        while(!cola.isEmpty() && !corte){
+        while (!cola.isEmpty() && !corte) {
             abAux = cola.dequeue();
-            if(abAux != null){
-                if(abAux.getChildren().size() <= num){
+            if (abAux != null) {
+                listaAct.add(abAux.getData());
+                if (abAux.getChildren().size() >= num) {
                     cumpleNivel = true;
                 }
-                listaAct.add(abAux.getData());
-                for(GeneralTree<Integer> nodo : abAux.getChildren()){
+                for (GeneralTree<Integer> nodo : abAux.getChildren()) {
                     cola.enqueue(nodo);
                 }
             }
             else{
                 if(cumpleNivel){
-                    //listaNodos.clear();
-                    listaNodos.addAll(listaAct);
                     corte = true;
+                    listaNodos.addAll(new ArrayList<Integer>(listaAct));
                 }
                 else{
                     listaAct.clear();
+                    //cumpleNivel = false;
                 }
-                if(!cola.isEmpty()){
-                    cola.enqueue(null);
-                }
+            }
+            if(!cola.isEmpty()){
+                cola.enqueue(null);
             }
         }
         return listaNodos;

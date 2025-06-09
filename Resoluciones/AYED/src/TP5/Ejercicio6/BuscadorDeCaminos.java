@@ -20,7 +20,8 @@ public class BuscadorDeCaminos {
         return caminos;
     }
 
-    private void recorridoMasSeguro(Vertex<String> origen, Vertex<String> destino, List<List<String>> caminos, List<String> caminoAct, boolean[] visitados){
+    private void recorridoMasSeguro(Vertex<String> origen, Vertex<String> destino, List<List<String>> caminos,
+                                    List<String> caminoAct, boolean[] visitados){
         caminoAct.add(origen.getData());
         visitados[origen.getPosition()] = true;
         if (origen == destino){

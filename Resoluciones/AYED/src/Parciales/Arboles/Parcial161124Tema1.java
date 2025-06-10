@@ -1,4 +1,4 @@
-package Parciales;
+package Parciales.Arboles;
 import TP3.Ejercicio1.GeneralTree;
 import java.util.ArrayList;
 import java.util.Iterator;

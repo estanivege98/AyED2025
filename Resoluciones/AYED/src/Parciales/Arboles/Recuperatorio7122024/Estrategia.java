@@ -1,4 +1,4 @@
-package Parciales.Recuperatorio7122024;
+package Parciales.Arboles.Recuperatorio7122024;
 
 import TP3.Ejercicio1.GeneralTree;
 

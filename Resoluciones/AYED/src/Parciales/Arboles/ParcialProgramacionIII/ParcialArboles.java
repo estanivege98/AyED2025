@@ -1,4 +1,4 @@
-package Parciales.ParcialProgramacionIII;
+package Parciales.Arboles.ParcialProgramacionIII;
 import TP3.Ejercicio1.GeneralTree;
 import TP1.Ejercicio8.*;
 public class ParcialArboles {

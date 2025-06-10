@@ -1,4 +1,4 @@
-package Parciales.ParcialPrincesaGenerales;
+package Parciales.Arboles.ParcialPrincesaGenerales;
 
 import TP3.Ejercicio1.GeneralTree;
 

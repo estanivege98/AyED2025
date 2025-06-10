@@ -1,4 +1,4 @@
-package Parciales.Redictado2022;
+package Parciales.Arboles.Redictado2022;
 import TP2.Ejercicio1.BinaryTree;
 import java.util.ArrayList;
 import java.util.List;

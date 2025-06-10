@@ -1,4 +1,4 @@
-package Parciales.caminosPares;
+package Parciales.Arboles.caminosPares;
 /* Dado un árbol general, encontrar todos los caminos desde la raíz a una hoja, tales que la cantidad de
 nodos en el camino sea un número par. Escribir el siguiente método dentro de la clase Parcial public ??
 caminosPares(ArbolGeneral<Character> arbol) */

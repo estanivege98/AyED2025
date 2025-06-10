@@ -1,4 +1,4 @@
-package Parciales.esPrincesa;
+package Parciales.Arboles.esPrincesa;
 
 import TP2.Ejercicio1.*;
 public class ParcialV2 {

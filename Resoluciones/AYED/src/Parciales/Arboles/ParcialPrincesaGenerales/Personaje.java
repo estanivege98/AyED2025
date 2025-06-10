@@ -1,4 +1,4 @@
-package Parciales.ParcialPrincesaGenerales;
+package Parciales.Arboles.ParcialPrincesaGenerales;
 
 public class Personaje {
     private String nombre;

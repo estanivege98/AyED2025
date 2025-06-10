@@ -1,4 +1,4 @@
-package Parciales.esPrincesa;
+package Parciales.Arboles.esPrincesa;
 
 public class Personaje {
     private String nombre;

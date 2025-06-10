@@ -1,7 +1,6 @@
-package Parciales;
+package Parciales.Arboles;
 
 import TP3.Ejercicio1.GeneralTree;
-import java.util.ArrayList;
 import TP1.Ejercicio8.*;
 /* Llamaremos a un árbol general creciente si en cada nivel del árbol la cantidad de nodos que hay en ese
 nivel es igual al valor del nivel más 1. Es decir, el nivel 0 tiene exactamente un nodo, el nivel 1 tiene

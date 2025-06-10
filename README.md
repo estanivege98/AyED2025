@@ -12,4 +12,5 @@ Este es el repositorio de la materia de Algorimos y Estructuras de Datos de la f
 - [Practica2](./Resoluciones/AYED/src/TP2/)
 - [Practica3](./Resoluciones/AYED/src/TP3/)
 ### Parciales Resueltos:
-- [Árboles](./Resoluciones/AYED/src/Parciales/)
+- [Árboles](./Resoluciones/AYED/src/Parciales/Arboles)
+- [Grafos](./Resoluciones/AYED/src/Parciales/Grafos)

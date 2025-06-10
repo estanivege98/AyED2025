@@ -1,4 +1,4 @@
-package Parciales.Parcial1EraFecha2024;
+package Parciales.Arboles.Parcial1EraFecha2024;
 
 import TP3.Ejercicio1.GeneralTree;
 import TP1.Ejercicio8.*;

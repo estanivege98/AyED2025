@@ -1,4 +1,4 @@
-package Parciales.Tema12962024;
+package Parciales.Arboles.Tema12962024;
 import TP2.Ejercicio1.*;
 public class Prueba {
     public static void main(String[] args) {

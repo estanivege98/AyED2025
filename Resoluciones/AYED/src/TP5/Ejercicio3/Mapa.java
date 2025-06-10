@@ -177,7 +177,7 @@ public class Mapa {
         }
         return camino;
     }
-    public int caminoConMenorCargaDeCombustible(Vertex<String> origen, Vertex<String> destino, List<String> camino, List<String> caminoAct
+    private int caminoConMenorCargaDeCombustible(Vertex<String> origen, Vertex<String> destino, List<String> camino, List<String> caminoAct
             , boolean[] marca, int tanqueActual, int tanqueAuto, int cargas, int minCargas){
         /* tanqueAuto: Capacidad total del tanque
         * tanqueActual: Cantidad de gasolina/nafta que el tanque tiene */

@@ -196,10 +196,10 @@ public class Mapa {
                 if(!marca[vecino.getPosition()]){
                     if (tanqueActual >= distancia){
                         // Si el tanque actual es suficiente para llegar al vecino
-                        minCargas = caminoConMenorCargaDeCombustible(vecino, destino, camino, caminoAct, marca, tanqueActual - distancia, tanqueAuto, cargas, minCargas);
+                        minCargas = Math.min(minCargas,caminoConMenorCargaDeCombustible(vecino, destino, camino, caminoAct, marca, tanqueActual - distancia, tanqueAuto, cargas, minCargas));
                     } else if (tanqueAuto >= distancia) {
                         // Si el tanque no es suficiente pero se puede recargar en el vecino
-                        minCargas = caminoConMenorCargaDeCombustible(vecino, destino, camino, caminoAct, marca, tanqueAuto - distancia, tanqueAuto, cargas + 1, minCargas);
+                        minCargas = Math.min(minCargas,caminoConMenorCargaDeCombustible(vecino, destino, camino, caminoAct, marca, tanqueAuto - distancia, tanqueAuto, cargas + 1, minCargas));
                     }
                 }
             }

@@ -25,7 +25,7 @@ public class BancoItau {
                         List<Edge<Persona>> adyacentes = grafo.getEdges(v);
                         for (Edge<Persona> ady : adyacentes) {
                             Vertex<Persona> vecino = ady.getTarget();
-                            if (!visitados[vecino.getPosition()] && adyacentes.size() < maxList) {
+                            if (!visitados[vecino.getPosition()] && jubilados.size() < maxList) {
                                 visitados[vecino.getPosition()] = true;
                                 if (vecino.getData().getTipo().equals("Jubulado") && !vecino.getData().isCobro()) {
                                     jubilados.add(new Jubilado(vecino.getData().getNombre(), vecino.getData().getDomicilio()));

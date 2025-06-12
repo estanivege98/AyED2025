@@ -3,6 +3,7 @@ package TP5.Ejercicio5;
 import TP5.ejercicio1.*;
 import TP1.Ejercicio8.*;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
@@ -23,9 +24,11 @@ public class BancoItau {
                     Vertex<Persona> v = cola.dequeue();
                     if (v != null) {
                         List<Edge<Persona>> adyacentes = grafo.getEdges(v);
-                        for (Edge<Persona> ady : adyacentes) {
-                            Vertex<Persona> vecino = ady.getTarget();
-                            if (!visitados[vecino.getPosition()] && jubilados.size() < maxList) {
+                        Iterator<Edge<Persona>> it = adyacentes.iterator();
+                        while (it.hasNext() && jubilados.size() < maxList) {
+                            Edge<Persona> arista = it.next();
+                            Vertex<Persona> vecino = arista.getTarget();
+                            if (!visitados[vecino.getPosition()]) {
                                 visitados[vecino.getPosition()] = true;
                                 if (vecino.getData().getTipo().equals("Jubulado") && !vecino.getData().isCobro()) {
                                     jubilados.add(new Jubilado(vecino.getData().getNombre(), vecino.getData().getDomicilio()));

@@ -12,9 +12,9 @@ public class BuscadorDeCamino {
             if(vOr != null){
                 Vertex<String> vDestino = ciudades.search(destino);
                 if (vDestino != null){
-                    List<String> caminoActual = new LinkedList<String>();
+
                     boolean[] visitados = new boolean[ciudades.getSize()];
-                    dfs(ciudades, vOr, vDestino, caminoActual, caminoFinal, visitados, montoMinimo, 0);
+                    dfs(ciudades, vOr, vDestino, caminoFinal, visitados, montoMinimo, 0);
                 }
             }
         }
@@ -22,17 +22,13 @@ public class BuscadorDeCamino {
     }
 
     private boolean dfs(Graph<String> ciudades, Vertex<String> or,
-                     Vertex<String> des, List<String> caminoActual, List<String> caminoAct
+                     Vertex<String> des, List<String> caminoActual
             ,boolean[] visitados, int montoMinimo, int montoActual){
         boolean encontrado = false;
         visitados[or.getPosition()] = true; // Marca el origen como visitado
         caminoActual.add(or.getData()); // Agrega el origen al recorrido
         if(or == des){
-            if(montoActual >= montoMinimo){
-                caminoAct.clear();
-                caminoAct.addAll(caminoActual);
-                return true; // Se encontró un camino válido
-            }
+            return true;
         }
         else{
             List<Edge<String>> adyacentes = ciudades.getEdges(or);
@@ -41,8 +37,8 @@ public class BuscadorDeCamino {
                 Edge<String> adyacente = it.next();
                 Vertex<String> vecino = adyacente.getTarget();
                 int pesoArista = adyacente.getWeight();
-                if(!visitados[vecino.getPosition()]){
-                    encontrado = dfs(ciudades, vecino, des, caminoActual, caminoAct, visitados, montoMinimo, montoActual + pesoArista);
+                if(!visitados[vecino.getPosition()] && pesoArista >= montoMinimo){
+                    encontrado = dfs(ciudades, vecino, des, caminoActual, visitados, montoMinimo, montoActual + pesoArista);
                 }
             }
         }

@@ -9,7 +9,7 @@ import TP5.ejercicio1.*;
 public class Parcial {
     public int resolver(Graph<Recinto> sitios, int tiempo) {
         int cantTotal = 0;
-        if (sitios != null || sitios.isEmpty()) {
+        if (sitios != null || !sitios.isEmpty()) {
             Vertex<Recinto> origen = this.buscarOrigen(sitios, "Entrada");
             if (origen != null) {
                 boolean[] visitados = new boolean[sitios.getSize()];
